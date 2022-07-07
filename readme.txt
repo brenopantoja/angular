@@ -106,4 +106,9 @@ ng generate component components/pages/about
 
 ng generate component components/pages/home
 
+ng generate component component
+
+// It is creating other component new-moment
+
+rg generate component components/new-moment
 
