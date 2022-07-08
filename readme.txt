@@ -112,3 +112,13 @@ ng generate component component
 
 rg generate component components/new-moment
 
+// It is creating form
+ng generate component components/moment-form
+
+
+//It is creating service/moment; coment; messages
+ng generate service services/moment
+ng generate service services/coment
+
+ng generate service services/messages
+
