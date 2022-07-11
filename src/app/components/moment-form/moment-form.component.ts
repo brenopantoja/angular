@@ -42,7 +42,7 @@ get description(){
     }
     //console.log("Envio de formulário");
     console.log(this.momentForm.value);
-    this.onSubmit.emit(this.momentForm.value);
+    this.onSubmit.emit(this.momentForm.value);// Data form are transmitting this way
   }
 
 }

@@ -1,40 +1,39 @@
-<form (ngSumit)="submit()" [formGroup]="momentForm" #formDir="ngForm">
+<form (ngSubmit)="submit()" [formGroup]="momentForm" #formDir="ngForm">
   <div class="form-group">
-    <label for ="title">Título: </label>
-    <input type="text"
-    placeholder="Informe um título"
-    formControlName="title"
-     required/>
+    <input type="hidden" formControlName="id" />
   </div>
-<div *ngIf="title.invalid && formDir.submitted" class="validation-error">
-  <!--<div *ngIf="title.invalid && formDir.submitted" class="validation-error">-->
-  <p *ngIf="title.errors?.['required'] ">O título é obrigatório</p>
-
-</div>
-
   <div class="form-group">
-    <label for ="description">Descrição: </label>
-    <textarea placeholder="Descreva o seu momento, ok?"
-    formControlName="description"
-     required>
-    </textarea>
+    <label for="title">Título:</label>
+    <input
+      type="text"
+      formControlName="title"
+      placeholder="Coloque um título"
+      required
+    />
 
+    <div *ngIf="title.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="title.errors?.['required']">O título é obrigatório.</p>
+    </div>
   </div>
-<!--
-  <div *ngIf="description.invalid && formDir.submitted" class="validation-error">
-    <p> O descrição é obrigatória</p>
-
-  </div>
--->
-<div *ngIf="description.invalid && formDir.submitted" class="validation-error">
-  <p *ngIf="description.errors?.['required'] "> A descrição é obrigatória</p>
-
-</div>
-
   <div class="form-group">
-    <label for="image" > Faça o upload da imagem/foto: </label>
-    <input type="file">
+    <label for="description">Descrição:</label>
+    <textarea
+      formControlName="description"
+      placeholder="O que aconteceu lá?"
+    ></textarea>
+    <div
+      *ngIf="description.invalid && formDir.submitted"
+      class="validation-error"
+    >
+      <p *ngIf="description.errors?.['required']">A descrição é obrigatória.</p>
+    </div>
   </div>
-<input type="submit" value="{{ btnText }}">
-
+  <div class="form-group">
+    <label for="image">Coloque a foto que mais marcou:</label>
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+    />
+  </div>
+  <input type="submit" value="{{ btnText }}" />
 </form>
