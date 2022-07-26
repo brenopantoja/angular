@@ -1,6 +1,6 @@
 //It is needing put Input() in import and aim class
 import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { Moment } from 'src/app/Moment';
 @Component({
@@ -11,15 +11,15 @@ import { Moment } from 'src/app/Moment';
 export class MomentFormComponent implements OnInit {
 @Output() onSubmit = new EventEmitter<Moment>()//It is sending data of the form
 @Input() btnText!:string;
-momentForm!: FormGroup
+momentForm!: UntypedFormGroup
   constructor() { }
 
   ngOnInit(): void {
-    this.momentForm = new FormGroup({// Part  of the fields form
-      id:new FormControl(''),
-      title:new FormControl('', [Validators.required]),
-      description: new FormControl('' ,[Validators.required]),
-      image:new FormControl(''),
+    this.momentForm = new UntypedFormGroup({// Part  of the fields form
+      id:new UntypedFormControl(''),
+      title:new UntypedFormControl('', [Validators.required]),
+      description: new UntypedFormControl('' ,[Validators.required]),
+      image:new UntypedFormControl(''),
     });
   }
 
