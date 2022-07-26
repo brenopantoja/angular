@@ -4,23 +4,37 @@ import { Moment } from 'src/app/Moment';
 
 import { MomentService } from 'src/app/services/moment.service';
 
-import { Routes } from '@angular/router';
+
+import {Router} from '@angular/router';
+
+//import { Router, RouterModule } from '@angular/router';
 
 import {MessagesService} from 'src/app/services/messages.service';
 
 @Component({
   selector: 'app-new-moment',
   templateUrl: './new-moment.component.html',
-  styleUrls: ['./new-moment.component.css']
+  styleUrls: ['./new-moment.component.css'],
 })
 export class NewMomentComponent implements OnInit {
-  btnText= 'Compartilhar !'; //It is showing in message button
+  btnText: string = 'Compartilhar!';
+  image?: File;
 
+  constructor(
+    private momentService: MomentService,
+    public router: Router,
+    private messagesService: MessagesService
+  ) {}
 
-  constructor( private momentService:MomentService, private messageService: MessagesService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+
+    this.image = file;
   }
+
+  buildForm() {}
 
   async createHandler(moment: Moment) {
     const formData = new FormData();
@@ -34,12 +48,8 @@ export class NewMomentComponent implements OnInit {
 
     await this.momentService.createMoment(formData).subscribe();
 
-    this.messageService.add("Momentos adicionado com sucesso !!");
+    this.messagesService.add(`Momento adicionado com sucesso!`);
 
-   // this.messagesService.add(`Momento adicionado com sucesso!`);
-
-    //this.router.navigate(['/']);
+    this.router.navigate(['/']);
   }
-
-    //await this.momentService.createMoment(formData).subscribe();
 }
