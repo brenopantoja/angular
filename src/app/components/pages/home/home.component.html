@@ -1,1 +1,20 @@
-<p>Página home </p>
+<div class= "home-container">
+<h1> Note as informações/ Compartilhamento</h1>
+ssss
+<div class="moment" *ngFor="let moment of moments">
+  <h2>Matricula: {{moment.id}}</h2>
+  <h2>Titulo:  {{moment.title}}</h2>
+l<h2>Descrição do Momento: {{moment.description}}</h2>
+
+<h2>Data de criação: {{moment.created_at}}</h2>
+
+ <img
+ width ="100px"
+ alt="150px" src="{{ baseApiUrl }}uploads/{{ moment.image }}">
+
+<h2>-----------------------------------------------------------------</h2>
+
+</div>
+
+
+</div>

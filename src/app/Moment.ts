@@ -3,7 +3,7 @@ id?:number;
 title: string;
 description: string;
 image:string;
-creat_at?: string;
+created_at?: string;
 updated_at?: string;
 coments?: [{text:string ; username:string}];
 

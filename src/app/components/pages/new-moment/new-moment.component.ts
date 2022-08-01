@@ -21,7 +21,7 @@ export class NewMomentComponent implements OnInit {
   image?: File;
 
   constructor(
-    private momentService: MomentService,
+   private momentService: MomentService,
     public router: Router,
     private messagesService: MessagesService
   ) {}
