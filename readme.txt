@@ -73,7 +73,7 @@ ng generate component components/item-detail
 npm install
 
 
-// Code is running:
+// Code is running: Data Base  API Adonis:
 
 node ace serve
 

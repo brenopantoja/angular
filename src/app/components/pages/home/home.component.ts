@@ -17,12 +17,12 @@ import {faSearch} from '@fortawesome/free-solid-svg-icons';
 })
 export class HomeComponent implements OnInit {
   allMoments: Moment[] = [];
-
+ // noMoments: Moment[] =[];
   moments: Moment[] =[];
 
   baseApiUrl = environment.baseApiUrl;
 
-// it is searhing
+// it is searching
 
   constructor(private momentService: MomentService ) { }
 

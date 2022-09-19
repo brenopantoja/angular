@@ -1,6 +1,26 @@
 <div class= "home-container">
 <h1> Note as informações/ Compartilhamento</h1>
 ssss
+
+<div *ngIf="moments.length > 0; else noMoments">
+  <div class="moments-container">
+    <div class="moment" *ngFor="let moment of moments">
+      <img
+        src="{{ baseApiUrl }}uploads/{{ moment.image }}"
+        alt="{{ moment.title }}"
+      />
+      <h3>{{ moment.title }}</h3>
+      <p class="date">Em: {{ moment.created_at }}</p>
+      <p>Comentários: {{ moment.comments!.length }}</p>
+      <p><a routerLink="moments/{{ moment.id }}">Detalhes</a></p>
+    </div>
+  </div>
+</div>
+<ng-template #noMoments>
+  <h1>Não há Momentos!</h1>
+</ng-template>
+
+<!--
 <div class="moment" *ngFor="let moment of moments">
   <h2>Matricula: {{moment.id}}</h2>
   <h2>Titulo:  {{moment.title}}</h2>
@@ -9,12 +29,12 @@ l<h2>Descrição do Momento: {{moment.description}}</h2>
 <h2>Data de criação: {{moment.created_at}}</h2>
 
  <img
- width ="100px"
- alt="150px" src="{{ baseApiUrl }}uploads/{{ moment.image }}">
+ width ="80px"
+ alt="100px" src="{{ baseApiUrl }}uploads/{{ moment.image }}">
 
 <h2>-----------------------------------------------------------------</h2>
 
 </div>
 
-
+-->
 </div>
