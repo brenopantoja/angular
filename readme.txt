@@ -142,6 +142,9 @@ npm install @fortawesome/fontawesome-svg-core
 npm install @fortawesome/free-solid-svg-icons
 
 npm install --save font-awesome angular-font-awesome
+
+
+
 -----------------------------------------------------------------------------------
 https://levitrares.com/host-https-qastack.com.br/programming/37991556/ng-is-not-recognized-as-an-internal-or-external-command
  // It is working

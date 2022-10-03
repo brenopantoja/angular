@@ -1,6 +1,12 @@
 <div class= "home-container">
 <h1> Note as informações/ Compartilhamento</h1>
-ssss
+<div class="search-container">
+  <form>
+    <fa-icon [icon]="faSearch"></fa-icon>
+    <input type ="text" placeholder=" Busque por um momento.."
+    (input)="search($event) ">
+  </form>
+</div>
 
 <div *ngIf="moments.length > 0; else noMoments">
   <div class="moments-container">
@@ -19,7 +25,7 @@ ssss
 <ng-template #noMoments>
   <h1>Não há Momentos!</h1>
 </ng-template>
-
+z
 <!--
 <div class="moment" *ngFor="let moment of moments">
   <h2>Matricula: {{moment.id}}</h2>
@@ -35,6 +41,7 @@ l<h2>Descrição do Momento: {{moment.description}}</h2>
 <h2>-----------------------------------------------------------------</h2>
 
 </div>
+
 
 -->
 </div>

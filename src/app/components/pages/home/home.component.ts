@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
   baseApiUrl = environment.baseApiUrl;
 
 // it is searching
+faSearch = faSearch;//It is propriety of the bloom icon
+seachTerm: string ="";
 
   constructor(private momentService: MomentService ) { }
 
@@ -40,5 +42,14 @@ export class HomeComponent implements OnInit {
     this.moments = data;
     });
   }
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement; // It is working search with HTML
+    const value = target.value;
 
+    this.moments = this.allMoments.filter((moment) =>
+
+      moment.title.toLowerCase().includes(value)// LowerCase()It is acessing type High case or lower case
+    );//includes() It is working search text
+
+  }
 }
