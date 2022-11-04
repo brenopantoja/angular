@@ -131,6 +131,8 @@ ng generate component components/messages
 ng add @fortawesome/angular-fontawesome
 npm i font-awesome --save-dev
 
+ng generate compoonent components/page/moment
+----------------------------------------------------------------------------------
 
 npm i @angular/router
 npm i --save @fortawesome/fontawesome-free

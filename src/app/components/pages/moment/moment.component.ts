@@ -1,10 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
-import{Router, ActivatedRoute} from '@angular/router';
+import{ ActivatedRoute} from '@angular/router';
 
 import {MomentService}  from 'src/app/services/moment.service';
 
+import { MessagesService } from 'src/app/services/messages.service';
+
+import { Router } from '@angular/router';
+
+//import { CommentService } from 'src/app/services/comment/comment.service';
+
 import {Moment} from 'src/app/Moment';
+
+import { environment } from 'src/environments/environment';
+
+import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-moment',
@@ -13,13 +23,19 @@ import {Moment} from 'src/app/Moment';
 })
 export class MomentComponent implements OnInit {
 moment?:Moment;
+baseApiUrl = environment.baseApiUrl;
 
+faTimes = faTimes;
+faEdit = faEdit;
 
   constructor(
     private momentService: MomentService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private messagesService: MessagesService,
+    private router: Router
 
-   }
+    ) {
+       }
     //It is working with id of the URL
 
   ngOnInit(): void {
@@ -29,5 +45,17 @@ moment?:Moment;
     .getMoment(id)
     .subscribe((item)=> (this.moment = item.data));
   }
+ // It is deleting the user id:
+
+
+ async removeHandler(id: number) {
+  if (id) {
+    await this.momentService.removeMoment(id).subscribe();
+
+    this.messagesService.add(`Momento excluído com sucesso!`);
+
+    this.router.navigate(['/']);
+  }
+}
 
 }
