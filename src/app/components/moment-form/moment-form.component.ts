@@ -11,7 +11,10 @@ import { Moment } from 'src/app/Moment';
 export class MomentFormComponent implements OnInit {
 @Output() onSubmit = new EventEmitter<Moment>()//It is sending data of the form
 @Input() btnText!:string;
+@Input() momentData: Moment | null = null;//It is working to show edit button.
+
 momentForm!: UntypedFormGroup
+
   constructor() { }
 
   ngOnInit(): void {
