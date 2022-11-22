@@ -6,5 +6,4 @@ momentId:number;
 created_at?: string;
 update_at?: string;
 
-
 }
